@@ -1,0 +1,449 @@
+/* General configurations */
+:root {
+    --ff-primary: 'Raleway', sans-serif;
+    --ff-secondary: Arial, Helvetica, sans-serif;
+
+    --fw-reg: bold;
+    --fw-bold: bold;
+
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #e84a4a;
+
+    --fs-h1: 2rem;
+    --fs-h2: 2rem;
+    --fs-h3: 1.5rem;
+    --fs-h3: 1rem;
+    --fs-body: 1rem;
+
+    /* BS is box shadow! */
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0.25);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+strong {font-weight: var(--fw-bold)}
+
+/* Outline on focused things */
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+/* Button in ABOUT section */
+.btn {
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-light);
+    color: var(--clr-accent);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: trasform 200ms ease-in-out;
+}
+.btn:hover {
+    transform: scale(1.1);
+}
+
+section {
+    padding: 5em 2em;
+}
+
+body{
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+/* Typography and properties for various headng text types and sections */
+
+h1 {
+    line-height: 1.5;
+    font-size: var(--fs-h1);
+}
+h2,
+h3,
+h4 {
+    line-height: 1;
+    margin: 0;
+}
+
+h2 {font-size: var(--fs-h2) };
+h3 {font-size: var(--fs-h3) };
+h4 {font-size: var(--fs-h4) };
+
+/* Styling for header */
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+/* Navigation screen (pops up when hamburger pressed */
+.nav {
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: var(--clr-accent);
+}
+.nav-toggle {
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: fixed;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before{
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after{
+    opacity: 0;
+}
+
+/* Hamburger button */
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before { top: 6px }
+.hamburger::after { bottom: 6px }
+
+/* General rules */
+.section__title{
+    margin-bottom: .25em;
+    font-weight: var(--fw-bold);
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro,
+.section__title--about,
+.section__title--projects,
+.section__subtitle--projects {
+    background: var(--clr-accent);
+    padding: .25em 1em;
+    margin-bottom:  1rem;
+}
+
+/* Styling for INTRO section*/
+.intro{
+    position: relative;
+}
+
+.logo {
+    max-width: 80px;
+    position: absolute;
+    left: 2em;
+    top: 1em;
+}
+
+.intro__bg {
+    opacity:0.3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.intro__img {
+    display: block;
+    margin: auto;
+    box-shadow: var(--bs);
+    max-width: 400px;
+    position: center;
+}
+
+.section__subtitle--intro {
+    font-weight: var(--fw-reg);
+    color: var(--clr-light);
+    display: block;
+    margin: auto;
+    position: center;
+    z-index: 2;
+}
+
+/* Special instructions for intro with wider screen */
+@media (min-width: 900px) {
+    
+    .intro{
+        display:grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas:
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;
+        
+    }
+
+    .intro__bg {
+        width: 75%;
+    }
+    
+    .intro__img{
+        grid-area:img;
+        grid-row: 4 / 12;
+        position: relative;
+        z-index: 1;
+    }
+    .section__title--intro{
+        grid-row: 3;
+    }
+    .section__subtitle--intro {
+        align-self: start;
+        grid-column: -1 / 1;
+        grid-row: 9;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% * 1.5me);
+        z-index: 2;
+    }
+}
+
+/* Styling for ABOUT section using relative positioning */
+.about {
+    position: relative;
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.about__bg {
+    opacity:0.3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.topics {
+    margin-bottom: 4em;
+    color: var(--clr-dark);
+}
+
+.topic {
+    max-width: 400px;
+    margin: 0 auto;
+}
+/* Special instructions for about with wider screen */
+@media (min-width: 800px) {
+    .topics {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .topic {
+        margin: 0 auto;
+    }
+
+    /* tells browser how to display an arbitrary multiple amount of topics*/
+    .topic + .topic {
+        margin-left: 2em
+    }
+
+    .about__bg {
+        width: 100%;
+    }
+}
+
+/* Styling for PROJECTS section using a grid*/
+.projects {
+    background-color: var(--clr-light);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.portfolio__item {
+    background: var(--clr-light);
+    overflow: hidden;
+    max-height: 250px;
+}
+
+.portolio__img {
+    display: block;
+    margin: auto;
+    max-width: 300;
+    object-fit: scale-down; /*FIX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    transition:
+        transform 750ms cubic-bezier(.5, 0, .5, 1),
+        opacity 250ms linear;
+}
+
+.portfolio__item:focus {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio__img:hover {
+    transform: scale(1.4);
+    opacity: .2;
+}
+
+/* Footer */
+
+.footer {
+    position: relative;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2em 0;
+    font-size: var(--fs-h3);
+}
+
+.footer__bg {
+    opacity:0.3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.footer a { 
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover{
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0 ;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+/*-------------------------------------------------------------------------------*/
+/* Styling for portfolio pages*/
+.portfolio__intro{
+    position: relative;
+    text-align: center;
+}
+.portfolio__intro__bg {
+    opacity:0.3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.intro__bg {
+    opacity:0.3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}

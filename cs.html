@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">  
+    
+    <head>
+            <meta charset = "UTF-8">
+            <!--This line assures the width adjusts to different device type screens--> 
+            <meta name = "viewport" content = "wdth = device-width, initial-scale=1.0"> 
+            <title>Fabrice Kurmann's Website</title>
+
+            <!--This line assures the website wll look the same on all browsers--> 
+            <link rel = "Stylesheet"
+            href = "link_goes_here"
+            integrity="value" crossorgin="anonymous"/>
+
+            <!--Link to inport fonts-->
+            <link href="FONT LINK" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+
+            <!--Link to my CSS style file-->
+            <link rel="stylesheet" href="css/style.css">
+
+            <!--FontAwesome Kit-->
+            <script src="https://kit.fontawesome.com/c27757c78f.js" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+        
+        <!--A header that includes a logo, a navigation toggle button, and the various linked pages to navgate to -->
+        <header>
+            <button class="nav-toggle" aria-label="tottle navigation">
+                <span class="hamburger"></span>
+            </button>
+            
+            <!--Various Sections of the website that can be navigated to with the section name-->
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class = "nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class = "nav__link">About</a></li>
+                    <li class="nav__item"><a href="#projects" class = "nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="#hobbies" class = "nav__link">Hobbies</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--Introduction-->
+        <div class="logo">
+            <img src="images/logo.jpg" alt = "Image Error">
+        </div>
+        <section class="portfolio__intro" id ="portfolio__intro">
+            <div class="background">
+                <img src="images/concrete1.jpg", alt = "Image Error" class="portfolio__intro__bg">
+            </div>
+            <h1 class = "section__title section__title--portfolio__intro">
+                Computer Science
+            </h1>
+        </section>
+
+         <!--Projects in a portfolio fashion-->
+         <section class="projects" id ="projects">
+            <h2 class = "section__title section__title--projects">
+                Project Portfolio
+            </h2>
+            <p class="section__subtitle section__subtitle--projects"> Items are choronlogically ordered </p>
+            
+            <div class="portfolio">
+                
+                <!--Portfolio Item 1-->
+                <a href="grade-school.html" class="portfolio__item">
+                    <h4>Grade School:</h4>
+                    <p>Academic projects thru high school:</p>
+                    <img src="images/gs_cover.png" alt = "Image Error" class="portfolio__img">
+                </a>
+
+                <!--Portfolio Item 2-->
+                <a href="#" class="portfolio__item">
+                    <h4>CS</h4>
+                    <p>Academic and personal CS projects</p>
+                    <img src="images/cs_cover.png" alt = "Image Error" class="portfolio__img">
+                </a>
+                <!--Portfolio Item 3-->
+                <a href="#" class="portfolio__item">
+                    <h4>Bioinformatics</h4>
+                    <p>Academic and personal BI projects:</p>
+                    <img src="images/bi_cover.png" alt = "Image Error" class="portfolio__img">
+                </a>
+                <!--Portfolio Item 4-->
+                <a href="#" class="portfolio__item">
+                    <h4>Misc:</h4>
+                    <p>Not one of the other 3:</p>
+                    <img src="images/misc_cover.png" alt = "Image Error" class="portfolio__img">
+                </a>
+            </div>
+            
+        </section>
+
+        <!--Footer-->
+        <footer>
+            <footer class="footer">
+                <div class="background">
+                    <img src="images/concrete1.jpg", alt = "Image Error" class="footer__bg">
+                </div>
+                <a href="mailto:fabrice.kurmann@gmail.com" class="footer__link"> fabrice.kurmann@gmail.com</a>
+
+                <!--Social media contacts list-->
+                <ul class="social-list">
+                    <li class="social-list__item">
+                        <a class="social-list__link" href="https://www.linkedin.com/in/fabrice-kurmann/"> 
+                            Linkedin <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li class="social-list__item">
+                        <a class="social-list__link" href="https://github.com/fkurmann"> 
+                            GitHub <i class="fa-brands fa-github"></i>
+                        </a>
+                    </li>
+                    <li class="social-list__item">
+                        <a class="social-list__link" href="https://www.instagram.com/fabrice.kurmann/"> 
+                            Instagram <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="social-list__item">
+                        <a class="social-list__link" href="link.com"> 
+                            Facebook <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="social-list__item">
+                        <a class="social-list__link" href="https://www.strava.com/athletes/23508999"> 
+                            Strava <i class="fa-brands fa-strava"></i>
+                        </a>
+                    </li>
+    
+                </ul>
+            </footer>     
+        </footer>
+
+        <script src="index.js">
+
+        </script>
+    </body>
+
+</html>
